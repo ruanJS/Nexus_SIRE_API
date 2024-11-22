@@ -11,8 +11,8 @@ using Oracle.EntityFrameworkCore.Metadata;
 namespace SIRE_API.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20241121234611_MigrationAtt")]
-    partial class MigrationAtt
+    [Migration("20241122162554_InitialMigration")]
+    partial class InitialMigration
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -35,21 +35,25 @@ namespace SIRE_API.Migrations
                     OraclePropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<DateTime>("Data")
-                        .HasColumnType("TIMESTAMP(7)");
+                        .HasColumnType("TIMESTAMP(7)")
+                        .HasColumnName("DATA");
 
                     b.Property<DateTime>("DataCadastro")
-                        .HasColumnType("TIMESTAMP(7)");
+                        .HasColumnType("TIMESTAMP(7)")
+                        .HasColumnName("DATACADASTRO");
 
                     b.Property<string>("Nome")
                         .IsRequired()
-                        .HasColumnType("NVARCHAR2(2000)");
+                        .HasColumnType("NVARCHAR2(2000)")
+                        .HasColumnName("NOME");
 
                     b.Property<double>("Valor")
-                        .HasColumnType("BINARY_DOUBLE");
+                        .HasColumnType("BINARY_DOUBLE")
+                        .HasColumnName("VALOR");
 
                     b.HasKey("Id");
 
-                    b.ToTable("Consumos", "RM551096");
+                    b.ToTable("TB_CONSUMOS", "RM551096");
                 });
 
             modelBuilder.Entity("SIRE_API._2___Domain.Entities.Dispositivo", b =>
@@ -95,17 +99,20 @@ namespace SIRE_API.Migrations
                     OraclePropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<DateTime>("DataGeracao")
-                        .HasColumnType("TIMESTAMP(7)");
+                        .HasColumnType("TIMESTAMP(7)")
+                        .HasColumnName("DATAGERACAO");
 
                     b.Property<string>("Descricao")
-                        .HasColumnType("NVARCHAR2(2000)");
+                        .HasColumnType("NVARCHAR2(2000)")
+                        .HasColumnName("DESCRICAO");
 
                     b.Property<string>("Titulo")
-                        .HasColumnType("NVARCHAR2(2000)");
+                        .HasColumnType("NVARCHAR2(2000)")
+                        .HasColumnName("TITULO");
 
                     b.HasKey("Id");
 
-                    b.ToTable("Relatorios", "RM551096");
+                    b.ToTable("TB_RELATORIO", "RM551096");
                 });
 #pragma warning restore 612, 618
         }
